@@ -1,33 +1,39 @@
 
 <section class="section">
     <div class="container">
-      <h1 class="title">Welcome Home</h1>
+      <h1 class="title">Welcome to Moviebase</h1>
       <h2 class="subtitle">
-        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
+        Having difficulties <strong>choosing</strong> a movie for tonight's movie night? <br> No Problem! Here you can get a movie suggestion with no charge!
       </h2>
     </div>
 </section>
 <section class="section">
     <div class="container">
-      <h1 class="title">Section</h1>
+      <h1 class="title">Get a random movie</h1>
       <h2 class="subtitle">
         A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
+      </h2>
+      <%= button_to "Get random movie", {}, {class: "button is-success is-rounded"} %>
+      <h2 class="subtitle">
+        <%= @movie.title %>
       </h2>
     </div>
 </section>
 <section class="section">
     <div class="container">
-      <h1 class="title">Section</h1>
-      <h2 class="subtitle">
-        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-      </h2>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-      <h1 class="title">Section</h1>
-      <h2 class="subtitle">
-        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-      </h2>
+        <h1 class="title">You can select your preferred genres here:</h1>
+        <div class="buttons has-addons">
+            <button class="button is-success is-selected">Yes</button>
+            <button class="button">No</button>
+        </div>
+        <div class="buttons has-addons">
+            <button class="button is-success is-selected">Yes</button>
+            <button class="button">No</button>
+        </div>
+        <div class="buttons has-addons">
+          <button class="button">Yes</button>
+          <button class="button is-danger is-selected">No</button>
+        </div>
+      
     </div>
 </section>
