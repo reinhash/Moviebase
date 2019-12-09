@@ -9,31 +9,122 @@
 </section>
 <section class="section">
     <div class="container">
-      <h1 class="title">Get a random movie</h1>
-      <h2 class="subtitle">
-        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-      </h2>
-      <%= button_to "Get random movie", {}, {class: "button is-success is-rounded"} %>
-      <h2 class="subtitle">
-        <%= @movie.title %>
-      </h2>
+      <div class="columns">
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-2by3">
+                  <img src=<%= @movie.poster %>></img>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4"><%= @movie.title %></p>
+                    <p class="subtitle is-6">imdbID: <%= @movie.imdbid %></p>
+                  </div>
+                </div>
+
+                <div class="content">Plot: <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  Released: 
+                  <time datetime="2016-1-1"><%= @movie.released %></time>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <%= button_to "Get random movie", {}, {class: "button is-success is-rounded"} %>
+            <h1 class="title">You can select your preferred genre's here:</h1>
+            <div class="columns">
+                <div class="column is-half">
+                    Action:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Adventure:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Black_comedy:
+                    <div class="buttons has-addons">
+                      <button class="button">Yes</button>
+                      <button class="button is-danger is-selected">No</button>
+                    </div>
+                    Comedy:
+                    <div class="buttons has-addons">
+                      <button class="button">Yes</button>
+                      <button class="button is-danger is-selected">No</button>
+                    </div>
+                    Concert_Performance:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Documentary:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Drama:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    Educational:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Horror:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Instructional:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Musical:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Romantic_comedy:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Thriller:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                    Western:
+                    <div class="buttons has-addons">
+                        <button class="button is-success is-selected">Yes</button>
+                        <button class="button">No</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      
+        
+      
     </div>
 </section>
 <section class="section">
     <div class="container">
-        <h1 class="title">You can select your preferred genre's here:</h1>
-        <div class="buttons has-addons">
-            <button class="button is-success is-selected">Yes</button>
-            <button class="button">No</button>
-        </div>
-        <div class="buttons has-addons">
-            <button class="button is-success is-selected">Yes</button>
-            <button class="button">No</button>
-        </div>
-        <div class="buttons has-addons">
-          <button class="button">Yes</button>
-          <button class="button is-danger is-selected">No</button>
-        </div>
+        
       
     </div>
 </section>
