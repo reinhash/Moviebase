@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/home", to: "home#index"
   get "/declaration", to: "declaration#index"
   get "/random_movie", to: "home#random_movie"
+  resources :preferences
 end

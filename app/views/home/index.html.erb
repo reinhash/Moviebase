@@ -1,3 +1,4 @@
+
 <section class="section">
     <div class="container">
       <h1 class="title">Welcome to Moviebase</h1>
@@ -36,65 +37,65 @@
             </div>
           </div>
           <div class="column is-two-third">
-            <%= form_with(url: "/search", method: "get") do %>
+            <%= form_with(url: "/preferences", method: "post") do %>
             <h1 class="title">You can select your preferred genre's here:</h1>
             <div class="columns">
                 <div class="column is-half">
                     <div class="field">
-                        <%= check_box_tag 'Action', '', true, {class: 'switch is-rounded is-success'} %>
+                        <%= check_box_tag('Action', @prefs['action'], @prefs['action'], {class: 'switch is-rounded is-success'}) %>
                       <label for="Action">Action</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Adventure', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Adventure', @prefs['adventure'], @prefs['adventure'], {class: 'switch is-rounded is-success'} %>
                       <label for="Adventure">Adventure</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Black_comedy', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Black_comedy', @prefs['black_comedy'], @prefs['black_comedy'], {class: 'switch is-rounded is-success'} %>
                       <label for="Black_comedy">Black Comedy</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Comedy', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Comedy', @prefs['comedy'], @prefs['comedy'], {class: 'switch is-rounded is-success'} %>
                       <label for="Comedy">Comedy</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Concert_performance', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Concert_performance', @prefs['concert_performance'], @prefs['concert_performance'], {class: 'switch is-rounded is-success'} %>
                       <label for="Concert_performance">Concert Performance</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Documentary', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Documentary', @prefs['documentary'], @prefs['documentary'], {class: 'switch is-rounded is-success'} %>
                       <label for="Documentary">Documentary</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Drama', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Drama', @prefs['drama'], @prefs['drama'], {class: 'switch is-rounded is-success'} %>
                       <label for="Drama">Drama</label>
                     </div>
                 </div>
                 <div class="column is-half">
                     <div class="field">
-                      <%= check_box_tag 'Educational', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Educational', @prefs['educational'], @prefs['educational'], {class: 'switch is-rounded is-success'} %>
                       <label for="Educational">Educational</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Horror', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Horror', @prefs['horror'], @prefs['horror'], {class: 'switch is-rounded is-success'} %>
                       <label for="Horror">Horror</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Musical', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Musical', @prefs['musical'], @prefs['musical'], {class: 'switch is-rounded is-success'} %>
                       <label for="Musical">Musical</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Romantic_comedy', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Romantic_comedy', @prefs['romantic_comedy'], @prefs['romantic_comedy'], {class: 'switch is-rounded is-success'} %>
                       <label for="Romantic_comedy">Romantic Comedy</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Thriller', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Thriller', @prefs['thriller'], @prefs['thriller'], {class: 'switch is-rounded is-success'} %>
                       <label for="Thriller">Thriller</label>
                     </div>
                     <div class="field">
-                      <%= check_box_tag 'Western', '', true, {class: 'switch is-rounded is-success'} %>
+                      <%= check_box_tag 'Western', @prefs['western'], @prefs['western'], {class: 'switch is-rounded is-success'} %>
                       <label for="Western">Western</label>
                     </div>
-                    <%= submit_tag("Get random movie", :class => "button is-success is-rounded" ) %>
+                    <%= submit_tag("Save preferences", :class => "button is-success is-rounded" ) %>
                 </div>
             </div>
           </div>
