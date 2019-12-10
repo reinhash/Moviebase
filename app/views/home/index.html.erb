@@ -10,38 +10,11 @@
 <section class="section">
     <div class="container">
       <div class="columns">
-        <% if @movie %>
-          <div class="column is-one-quarter">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-2by3">
-                  <img src=<%= @movie.poster %>></img>
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4"><%= @movie.title %></p>
-                    <p class="subtitle is-6">imdbID: <%= @movie.imdbid %></p>
-                  </div>
-                </div>
-
-                <div class="content">Plot: <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  Released: 
-                  <time datetime="2016-1-1"><%= @movie.released %></time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <% end %>
-          <div class="column is-two-third">
+        
+          <div class="column is-half">
             <%= form_with(url: "/preferences", method: "post") do %>
             <h1 class="title">You can select your preferred genre's here:</h1>
-            <h2><button class="check button is-success is-outlined" onclick="select_all()">Un/Select</button></h2>
+            <h2><button class="check button is-success is-outlined" onclick="selectAll()">Un/Select</button></h2>
             <br>
             <div class="columns">
                 <div class="column is-half">
@@ -105,11 +78,38 @@
                 </div>
 
             </div>
-            <%= button_to "Get random movie", {}, {class: "button is-success is-fullwidth"} %>
+            <button class="button is-success is-fullwidth" onclick="showMovie()">Get random movie</button>
           </div>
 
           <% end %>
+          <% if @movie %>
+          <div class="column is-one-quarter">
+            <div class="card" id="movie_card">
+              <div class="card-image">
+                <figure class="image is-2by3">
+                  <img src=<%= @movie.poster %>></img>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4"><%= @movie.title %></p>
+                    <p class="subtitle is-6">imdbID: <%= @movie.imdbid %></p>
+                  </div>
+                </div>
 
+                <div class="content">Plot: <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  Released: 
+                  <time datetime="2016-1-1"><%= @movie.released %></time>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
       </div>
       
         
@@ -123,14 +123,23 @@
     </div>
 </section>
 <script type="text/javascript">
-    function select_all(){
+    $('document').ready($('#movie_card').hide())
+    function selectAll(){
         if($(':checkbox')[0]["checked"]===true){
             $(':checkbox').prop('checked', false);
         }
         else{
             $(':checkbox').prop('checked', true);
-        }
-            
+        }       
+    }
+
+    function showMovie(){
+        $('#movie_card').hide()
+        $('#movie_card').slideDown(1000)
+
+        $.get( "/home", function(data) {
+  console.log(data)
+});
     }
 
 
