@@ -39,7 +39,7 @@ class HomeController < ApplicationController
 
         sql_selector = []
         @prefs.each do |key, value|
-            if value == "on"
+            if value == "on" || key == value
                 sql_selector.push(key)
             end
         end

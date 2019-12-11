@@ -3,20 +3,6 @@ class PreferencesController < ApplicationController
     end
 
     def create
-      #  prefs = [:action => params[:Action],
-       #          :adventure => params[:Adventure],
-        #         :black_comedy => params[:Black_comedy],
-         #        :comedy => params[:Comedy],
-          #       :concert_performance => params[:Concert_performance],
-           #      :documentary => params[:Documentary],
-            #     :drama => params[:Drama],
-             #    :educational => params[:Educational],
-              #   :horror => params[:Horror],
-               #  :musical => params[:Musical], 
-                # :romantic_comedy => params[:Romantic_comedy],
-                 #:thriller => params[:Thriller],
-                 #:western => params[:Western]]
-
         prefs = {Action: params[:Action],
         Adventure: params[:Adventure],
         Black_comedy: params[:Black_comedy],
