@@ -1,119 +1,111 @@
-
-<section class="section">
+<section id="headline" class="section">
     <div class="container">
       <h1 class="title">Welcome to Moviebase</h1>
       <h2 class="subtitle">
-        Having difficulties <strong>choosing</strong> a movie for tonight's movie night? <br> No Problem! Here you can get a movie suggestion with no charge!
+        Having difficulties <strong>choosing</strong> a movie for tonight's movie night? No Problem! Here you can get a movie suggestion with no charge!
       </h2>
+      <button class="button is-success is-fullwidth is-outlined" onclick="showSettings()">ready</button>
     </div>
 </section>
-<section class="section">
+
+<section id="settings" class="section">
     <div class="container">
       <div class="columns">
-        
-          <div class="column is-half">
-            <%= form_with(url: "/preferences", method: "post") do %>
-            <h1 class="title">You can select your preferred genre's here:</h1>
-            <h2><button class="check button is-success is-outlined" onclick="selectAll()">Un/Select</button></h2>
-            <br>
-            <div class="columns">
-                <div class="column is-half">
-                    <div class="field">
-                        <%= check_box_tag('Action', @prefs['Action'], @prefs['Action'], {class: 'switch is-rounded is-success'}) %>
-                      <label for="Action">Action</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Adventure', @prefs['Adventure'], @prefs['Adventure'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Adventure">Adventure</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Black_comedy', @prefs['Black_comedy'], @prefs['Black_comedy'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Black_comedy">Black Comedy</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Comedy', @prefs['Comedy'], @prefs['Comedy'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Comedy">Comedy</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Concert_performance', @prefs['Concert_performance'], @prefs['Concert_performance'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Concert_performance">Concert Performance</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Documentary', @prefs['Documentary'], @prefs['Documentary'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Documentary">Documentary</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Drama', @prefs['Drama'], @prefs['Drama'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Drama">Drama</label>
-                    </div>
+        <div class="column is-half">
+            <section class="section">
+                <%= form_with(url: "/preferences", method: "post") do %>
+                <h1 class="title">You can select your preferred genre's here:</h1>
+                <h2><button class="check button is-success is-outlined" onclick="selectAll()">Un/Select</button></h2>
+                <br>
+                <div class="columns">
+                    <div class="column is-half">
+                        <div class="field">
+                            <%= check_box_tag('Action', @prefs['Action'], @prefs['Action'], {class: 'switch is-rounded is-success'}) %>
+                          <label for="Action">Action</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Adventure', @prefs['Adventure'], @prefs['Adventure'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Adventure">Adventure</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Black_comedy', @prefs['Black_comedy'], @prefs['Black_comedy'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Black_comedy">Black Comedy</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Comedy', @prefs['Comedy'], @prefs['Comedy'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Comedy">Comedy</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Concert_performance', @prefs['Concert_performance'], @prefs['Concert_performance'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Concert_performance">Concert Performance</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Documentary', @prefs['Documentary'], @prefs['Documentary'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Documentary">Documentary</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Drama', @prefs['Drama'], @prefs['Drama'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Drama">Drama</label>
+                        </div>
 
+                    </div>
+                    <div class="column is-half">
+                        <div class="field">
+                          <%= check_box_tag 'Educational', @prefs['Educational'], @prefs['Educational'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Educational">Educational</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Horror', @prefs['Horror'], @prefs['Horror'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Horror">Horror</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Musical', @prefs['Musical'], @prefs['Musical'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Musical">Musical</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Romantic_comedy', @prefs['Romantic_comedy'], @prefs['Romantic_comedy'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Romantic_comedy">Romantic Comedy</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Thriller', @prefs['Thriller'], @prefs['Thriller'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Thriller">Thriller</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Western', @prefs['Western'], @prefs['Western'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Western">Western</label>
+                        </div>
+                        <%= submit_tag("Save preferences", :class => "button is-link is-rounded" ) %>
+                    </div>
                 </div>
-                <div class="column is-half">
-                    <div class="field">
-                      <%= check_box_tag 'Educational', @prefs['Educational'], @prefs['Educational'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Educational">Educational</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Horror', @prefs['Horror'], @prefs['Horror'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Horror">Horror</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Musical', @prefs['Musical'], @prefs['Musical'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Musical">Musical</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Romantic_comedy', @prefs['Romantic_comedy'], @prefs['Romantic_comedy'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Romantic_comedy">Romantic Comedy</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Thriller', @prefs['Thriller'], @prefs['Thriller'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Thriller">Thriller</label>
-                    </div>
-                    <div class="field">
-                      <%= check_box_tag 'Western', @prefs['Western'], @prefs['Western'], {class: 'switch is-rounded is-success'} %>
-                      <label for="Western">Western</label>
-                    </div>
-                    
-                    <%= submit_tag("Save preferences", :class => "button is-link is-rounded" ) %>
-                </div>
-
-            </div>
-            <button class="button is-success is-fullwidth" onclick="showMovie()">Get random movie</button>
-          </div>
-
-          <% end %>
-          <% if @movie %>
-          <div class="column is-one-quarter">
+                <button class="button is-success is-fullwidth" onclick="showMovie()">Get random movie</button>
+                <% end %>
+            </section>
+        </div>
+        <div class="column is-one-quarter">
             <div class="card" id="movie_card">
-              <div class="card-image">
-                <figure class="image is-2by3">
-                  <img src=<%= @movie.poster %>></img>
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4"><%= @movie.title %></p>
-                    <p class="subtitle is-6">imdbID: <%= @movie.imdbid %></p>
-                  </div>
+                <div class="card-image">
+                    <figure class="image is-2by3">
+                        <img id="movie_post_url" src=""></img>
+                    </figure>
                 </div>
-
-                <div class="content">Plot: <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  Released: 
-                  <time datetime="2016-1-1"><%= @movie.released %></time>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        </div>
+                        <div class="media-content">
+                            <p id="movie_title" class="title is-4"></p>
+                            <p id="movie_imdbid" class="subtitle is-6">imdbID:</p>
+                        </div>
+                    </div>
+                    <div class="content">Plot: <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        Released: 
+                        <time id="movie_released" datetime="2016-1-1"></time>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <% end %>
-      </div>
-      
-        
-      
+        </div>
     </div>
 </section>
 <section class="section">
@@ -124,6 +116,7 @@
 </section>
 <script type="text/javascript">
     $('document').ready($('#movie_card').hide())
+    $('document').ready($('#settings').hide())
     function selectAll(){
         if($(':checkbox')[0]["checked"]===true){
             $(':checkbox').prop('checked', false);
@@ -135,11 +128,24 @@
 
     function showMovie(){
         $('#movie_card').hide()
-        $('#movie_card').slideDown(1000)
+        $.get( "/random_movie", function(data) {
+            if(data.movie){
+                $('#movie_post_url').attr("src", data.movie.poster)
+                $('#movie_title').text(data.movie.title)
+                $('#movie_imdbid').text("imdbID: "+data.movie.imdbid)
+                $('#movie_released').text(data.movie.released)
+                $('#movie_card').slideDown(1260)
+            }
+        });
+    }
 
-        $.get( "/home", function(data) {
-  console.log(data)
-});
+    function showSettings(){
+        //$('#headline').hide();
+        $('#settings').show();
+
+         $('html, body').animate({
+            scrollTop: $("#settings").offset().top
+        }, 1000);
     }
 
 
