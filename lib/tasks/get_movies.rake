@@ -8,7 +8,7 @@ task :get_movies => :environment do
             #target_movie = Movie.find(random_number)
             unless target_movie.imdbid
                 unless target_movie.poster
-                    response = HTTParty.get("http://www.omdbapi.com/?s=#{target_movie.title}}&apikey=e9bbf01e")
+                    response = HTTParty.get("http://www.omdbapi.com/?s=#{target_movie.title}&apikey=e9bbf01e")
                     
                     if response['Search']
                         if response['Search'][0]
