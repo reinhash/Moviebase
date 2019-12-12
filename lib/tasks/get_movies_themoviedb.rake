@@ -101,19 +101,21 @@ task :get_movies_themoviedb => :environment do
         request_string = "https://api.themoviedb.org/3/discover/movie?#{key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=#{page}&vote_average.gte=#{rating}"
 
         response = HTTParty.get(request_string)
-        
-        response["results"].each do |r|
-            poster = posterbaseurl+r['poster_path'].to_s
-            title = r['title']
-            plot = r['overview']
-            released = r['release_date']
-            vote_average = r['vote_average']
-            raw_genre = r['genre_ids'][0]
-            genre = get_genre(raw_genre)
+        begin
+          response["results"].each do |r|
+              poster = posterbaseurl+r['poster_path'].to_s
+              title = r['title']
+              plot = r['overview']
+              released = r['release_date']
+              vote_average = r['vote_average']
+              raw_genre = r['genre_ids'][0]
+              genre = get_genre(raw_genre)
 
 
-            all_movies = Movie.new(:title => title, :released => released, :poster => poster, :vote_average => vote_average, :genre => genre, :plot => plot)
-            all_movies.save 
+              all_movies = Movie.new(:title => title, :released => released, :poster => poster, :vote_average => vote_average, :genre => genre, :plot => plot)
+              all_movies.save 
+          end
+        rescue
         end
         page = page + 1
         puts "done with page: ", page
