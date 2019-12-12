@@ -113,11 +113,12 @@ task :get_movies_themoviedb => :environment do
 
 
               all_movies = Movie.new(:title => title, :released => released, :poster => poster, :vote_average => vote_average, :genre => genre, :plot => plot)
-              all_movies.save 
+              all_movies.save
           end
         rescue
         end
         page = page + 1
         puts "done with page: ", page
+        sleep(1)
     end      
 end
