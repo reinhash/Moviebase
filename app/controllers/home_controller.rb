@@ -2,16 +2,22 @@ class HomeController < ApplicationController
     def default_pref
         prefs = {Action: "on",
                 Adventure: "on",
-                Black_comedy: "on",
+                Animation: "on",
                 Comedy: "on",
-                Concert_performance: "on",
+                Crime: "on",
                 Documentary: "on",
                 Drama: "on",
-                Educational: "on",
+                Family: "on",
+                Fantasy: "on",
+                History: "on",
                 Horror: "on",
-                Musical: "on", 
-                Romantic_comedy: "on",
+                Music: "on",
+                Mystery: "on",
+                Romance: "on",
+                Science_fiction: "on",
+                Tv_movie: "on",
                 Thriller: "on",
+                War: "on",
                 Western: "on"
             }.to_json
 

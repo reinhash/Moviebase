@@ -28,16 +28,16 @@
                           <label for="Adventure">Adventure</label>
                         </div>
                         <div class="field">
-                          <%= check_box_tag 'Black_comedy', @prefs['Black_comedy'], @prefs['Black_comedy'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Black_comedy">Black Comedy</label>
+                          <%= check_box_tag 'Animation', @prefs['Animation'], @prefs['Animation'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Animation">Animation</label>
                         </div>
                         <div class="field">
                           <%= check_box_tag 'Comedy', @prefs['Comedy'], @prefs['Comedy'], {class: 'switch is-rounded is-success'} %>
                           <label for="Comedy">Comedy</label>
                         </div>
                         <div class="field">
-                          <%= check_box_tag 'Concert_performance', @prefs['Concert_performance'], @prefs['Concert_performance'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Concert_performance">Concert Performance</label>
+                          <%= check_box_tag 'Crime', @prefs['Crime'], @prefs['Crime'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Crime">Concert Performance</label>
                         </div>
                         <div class="field">
                           <%= check_box_tag 'Documentary', @prefs['Documentary'], @prefs['Documentary'], {class: 'switch is-rounded is-success'} %>
@@ -47,28 +47,48 @@
                           <%= check_box_tag 'Drama', @prefs['Drama'], @prefs['Drama'], {class: 'switch is-rounded is-success'} %>
                           <label for="Drama">Drama</label>
                         </div>
+                        <div class="field">
+                          <%= check_box_tag 'History', @prefs['History'], @prefs['History'], {class: 'switch is-rounded is-success'} %>
+                          <label for="History">History</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Science_fiction', @prefs['Science_fiction'], @prefs['Science_fiction'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Science_fiction">Science Fiction</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'War', @prefs['War'], @prefs['War'], {class: 'switch is-rounded is-success'} %>
+                          <label for="War">War</label>
+                        </div>
 
                     </div>
                     <div class="column is-half">
                         <div class="field">
-                          <%= check_box_tag 'Educational', @prefs['Educational'], @prefs['Educational'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Educational">Educational</label>
+                          <%= check_box_tag 'Family', @prefs['Family'], @prefs['Family'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Family">Family</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Fantasy', @prefs['Fantasy'], @prefs['Fantasy'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Fantasy">Fantasy</label>
                         </div>
                         <div class="field">
                           <%= check_box_tag 'Horror', @prefs['Horror'], @prefs['Horror'], {class: 'switch is-rounded is-success'} %>
                           <label for="Horror">Horror</label>
                         </div>
                         <div class="field">
-                          <%= check_box_tag 'Musical', @prefs['Musical'], @prefs['Musical'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Musical">Musical</label>
+                          <%= check_box_tag 'Music', @prefs['Music'], @prefs['Music'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Music">Music</label>
                         </div>
                         <div class="field">
-                          <%= check_box_tag 'Romantic_comedy', @prefs['Romantic_comedy'], @prefs['Romantic_comedy'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Romantic_comedy">Romantic Comedy</label>
+                          <%= check_box_tag 'Romance', @prefs['Romance'], @prefs['Romance'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Romance">Romance</label>
                         </div>
                         <div class="field">
                           <%= check_box_tag 'Thriller', @prefs['Thriller'], @prefs['Thriller'], {class: 'switch is-rounded is-success'} %>
                           <label for="Thriller">Thriller</label>
+                        </div>
+                        <div class="field">
+                          <%= check_box_tag 'Tv_movie', @prefs['Tv_movie'], @prefs['Tv_movie'], {class: 'switch is-rounded is-success'} %>
+                          <label for="Tv_movie">Tv Movie</label>
                         </div>
                         <div class="field">
                           <%= check_box_tag 'Western', @prefs['Western'], @prefs['Western'], {class: 'switch is-rounded is-success'} %>
@@ -81,7 +101,7 @@
                 <% end %>
             </section>
         </div>
-        <div class="column is-one-quarter">
+        <div class="column is-one-third">
             <div class="card" id="movie_card">
                 <div class="card-image">
                     <figure class="image is-2by3">
@@ -94,13 +114,12 @@
                         </div>
                         <div class="media-content">
                             <p id="movie_title" class="title is-4"></p>
-                            <p id="movie_imdbid" class="subtitle is-6">imdbID:</p>
+                            <p id="movie_imdbid" class="subtitle is-6">Rating: </p>
                         </div>
                     </div>
-                    <div class="content">Plot: <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
+                    <div class="content">
+                        <p id="movie_plot"></p>
                         <br>
-                        Released: 
                         <time id="movie_released" datetime="2016-1-1"></time>
                     </div>
                 </div>
@@ -132,8 +151,9 @@
             if(data.movie){
                 $('#movie_post_url').attr("src", data.movie.poster)
                 $('#movie_title').text(data.movie.title)
-                $('#movie_imdbid').text("imdbID: "+data.movie.imdbid)
-                $('#movie_released').text(data.movie.released)
+                $('#movie_imdbid').text("Rating: " + data.movie.vote_average + "/10")
+                $('#movie_released').text("Released: "+data.movie.released)
+                $('#movie_plot').text("Plot: "+data.movie.plot)
                 $('#movie_card').slideDown(1260)
             }
         });
@@ -143,7 +163,7 @@
         //$('#headline').hide();
         $('#settings').show();
 
-         $('html, body').animate({
+        $('html, body').animate({
             scrollTop: $("#settings").offset().top
         }, 1000);
     }

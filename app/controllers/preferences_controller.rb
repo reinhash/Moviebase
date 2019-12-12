@@ -5,16 +5,22 @@ class PreferencesController < ApplicationController
     def create
         prefs = {Action: params[:Action],
         Adventure: params[:Adventure],
-        Black_comedy: params[:Black_comedy],
+        Animation: params[:Animation],
         Comedy: params[:Comedy],
-        Concert_performance: params[:Concert_performance],
+        Crime: params[:Crime],
         Documentary: params[:Documentary],
         Drama: params[:Drama],
-        Educational: params[:Educational],
+        Family: params[:Family],
+        Fantasy: params[:Fantasy],
+        History: params[:History],
         Horror: params[:Horror],
-        Musical: params[:Musical], 
-        Romantic_comedy: params[:Romantic_comedy],
+        Music: params[:Music],
+        Mystery: params[:Mystery],
+        Romance: params[:Romance],
+        Science_fiction: params[:Science_fiction],
+        Tv_movie: params[:Tv_movie],
         Thriller: params[:Thriller],
+        War: params[:War],
         Western: params[:Western]}.to_json
 
         session[:prefs] = prefs
@@ -23,9 +29,10 @@ class PreferencesController < ApplicationController
 
     private
     def preference_params
-        params.permit[:Action, :Adventure, :Black_comedy, :Comedy, 
-            :Concert_performance, :Documentary, :Drama, :Educational, 
-            :Horror, :Musical, :Romantic_comedy, :Thriller, :Western]
+        params.permit[:Action, :Adventure, :Animation, :Comedy, 
+            :Crime, :Documentary, :Drama, :Family, :Fantasy, :History, 
+            :Horror, :Music, :Mystery, :Romance, :Science_fiction,
+            :Tv_movie, :Thriller, :War, :Western]
     end
 
 end
