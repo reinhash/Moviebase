@@ -104,7 +104,7 @@ task :get_movies_themoviedb => :environment do
         
         response["results"].each do |r|
             poster = posterbaseurl+r['poster_path'].to_s
-            title = r['original_title']
+            title = r['title']
             plot = r['overview']
             released = r['release_date']
             vote_average = r['vote_average']

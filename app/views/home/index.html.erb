@@ -1,10 +1,11 @@
-<section id="headline" class="section">
+<section id="headline" class="hero is-bold is-info" style="min-height: 500px;">
     <div class="container">
-      <h1 class="title">Welcome to Moviebase</h1>
+      <h1 class="title" style="margin-top: 30px;">Welcome to Moviebase</h1>
       <h2 class="subtitle">
         Having difficulties <strong>choosing</strong> a movie for tonight's movie night? No Problem! Here you can get a movie suggestion with no charge!
       </h2>
-      <button class="button is-success is-fullwidth is-outlined" onclick="showSettings()">ready</button>
+      <button class="button is-light is-medium" onclick="showSettings()">ready</button>
+
     </div>
 </section>
 
@@ -17,6 +18,7 @@
                 <h1 class="title">You can select your preferred genre's here:</h1>
                 <h2><button class="check button is-success is-outlined" onclick="selectAll()">Un/Select</button></h2>
                 <br>
+
                 <div class="columns">
                     <div class="column is-half">
                         <div class="field">
@@ -51,10 +53,7 @@
                           <%= check_box_tag 'History', @prefs['History'], @prefs['History'], {class: 'switch is-rounded is-success'} %>
                           <label for="History">History</label>
                         </div>
-                        <div class="field">
-                          <%= check_box_tag 'Science_fiction', @prefs['Science_fiction'], @prefs['Science_fiction'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Science_fiction">Science Fiction</label>
-                        </div>
+                        
                         <div class="field">
                           <%= check_box_tag 'War', @prefs['War'], @prefs['War'], {class: 'switch is-rounded is-success'} %>
                           <label for="War">War</label>
@@ -86,10 +85,7 @@
                           <%= check_box_tag 'Thriller', @prefs['Thriller'], @prefs['Thriller'], {class: 'switch is-rounded is-success'} %>
                           <label for="Thriller">Thriller</label>
                         </div>
-                        <div class="field">
-                          <%= check_box_tag 'Tv_movie', @prefs['Tv_movie'], @prefs['Tv_movie'], {class: 'switch is-rounded is-success'} %>
-                          <label for="Tv_movie">Tv Movie</label>
-                        </div>
+                        
                         <div class="field">
                           <%= check_box_tag 'Western', @prefs['Western'], @prefs['Western'], {class: 'switch is-rounded is-success'} %>
                           <label for="Western">Western</label>
@@ -97,10 +93,14 @@
                         <%= submit_tag("Save preferences", :class => "button is-link is-rounded" ) %>
                     </div>
                 </div>
-                <button class="button is-success is-fullwidth" onclick="showMovie()">Get random movie</button>
+                <button class="button is-success is-fullwidth" onclick="showMovie()">Get a movie suggestion</button>
                 <% end %>
+
             </section>
+
+
         </div>
+        <div class="is-divider-vertical" data-content="Movie"></div>
         <div class="column is-one-third">
             <div class="card" id="movie_card">
                 <div class="card-image">
@@ -115,6 +115,7 @@
                         <div class="media-content">
                             <p id="movie_title" class="title is-4"></p>
                             <p id="movie_imdbid" class="subtitle is-6">Rating: </p>
+                            <progress id="movie_progress" class="progress is-success" value="60" max="100"></progress>
                         </div>
                     </div>
                     <div class="content">
@@ -127,12 +128,7 @@
         </div>
     </div>
 </section>
-<section class="section">
-    <div class="container">
-        
-      
-    </div>
-</section>
+
 <script type="text/javascript">
     $('document').ready($('#movie_card').hide())
     $('document').ready($('#settings').hide())
@@ -149,9 +145,21 @@
         $('#movie_card').hide()
         $.get( "/random_movie", function(data) {
             if(data.movie){
+                $('#movie_post_url').attr("src", "")
+                $('#movie_progress').attr("value", "")
+
+                if(data.movie.vote_average > 8.2){
+                    $('#movie_progress').attr("class", "progress is-success")
+                }
+                else {
+                    $('#movie_progress').attr("class", "progress is-warning")
+                }
+
+
                 $('#movie_post_url').attr("src", data.movie.poster)
                 $('#movie_title').text(data.movie.title)
                 $('#movie_imdbid').text("Rating: " + data.movie.vote_average + "/10")
+                $('#movie_progress').attr("value", data.movie.vote_average*10)
                 $('#movie_released').text("Released: "+data.movie.released)
                 $('#movie_plot').text("Plot: "+data.movie.plot)
                 $('#movie_card').slideDown(1260)
@@ -160,7 +168,6 @@
     }
 
     function showSettings(){
-        //$('#headline').hide();
         $('#settings').show();
 
         $('html, body').animate({
