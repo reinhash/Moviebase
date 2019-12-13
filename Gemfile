@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'httparty', '~> 0.13.7'
-gem "bulma-rails", "~> 0.8.0"
+#gem "bulma-rails", "~> 0.8.0"
 gem 'roo'
 gem 'devise'
 
