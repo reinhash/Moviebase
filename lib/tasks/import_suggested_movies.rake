@@ -9,7 +9,7 @@ task :import_suggested_movies => :environment do
         title = workbook.row(row_number)[2].to_s
         genre = workbook.row(row_number)[6].to_s
         all_movies = Movie.new(:title => title, :released => released,:genre => genre)  # insert data into table, you can also do bulk inset if you have more data to be inserted.
-        all_movies .save 
+        all_movies.save 
     end
 
     puts "done"
