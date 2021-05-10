@@ -10,7 +10,7 @@
     "bulma-divider": "^0.2.0",
     "bulma-switch": "^2.0.0",
     "elliptic": "6.5.3",
-    "lodash": "4.17.19",
+    "lodash": "4.17.21",
     "serialize-javascript": "^2.1.1",
     "turbolinks": "^5.2.0",
     "websocket-extensions": "0.1.4"
