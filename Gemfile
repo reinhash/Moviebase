@@ -14,7 +14,7 @@ gem "actionpack", ">= 6.0.3.1"
 gem "activestorage", ">= 6.0.3.1"
 gem "actionview", ">= 6.0.2.2"
 gem "puma", "= 4.0.1"
-gem "nokogiri", "= 1.10.9"
+gem "nokogiri", "1.13.6"
 gem "rack", ">= 2.2.3"
 
 # Use Puma as the app server
